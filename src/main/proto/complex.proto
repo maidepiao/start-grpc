@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.star.demo.grpc1";
+option java_outer_classname = "ComplexProto";
+option objc_class_prefix = "cmx";
+
+package grpc1;
+
+service Printer{
+    rpc GetInfo (CmxReq) returns (CmxResp) {}
+}
+
+message CmxReq{
+    string name = 1;
+    int32 age = 2;
+    repeated string tags = 3;
+}
+
+message CmxResp{
+    string name = 1;
+    repeated string hobbys = 2;
+}
